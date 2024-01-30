@@ -14,10 +14,10 @@ cursor.execute('''CREATE TABLE produtos (
         ultimas_pecas INTEGER
     );''')
 
-def inserir_dados(empresa, companhia_de_voo, preco_total, taxa_de_embarque, taxa_de_servico, tempo_de_voo, data_hora_ida, data_hora_volta):
+def inserir_dados(modelo, capacidade_gb, tamanho_tela, preco_total, valor_parcela, cor, ultimas_pecas):
     conn = sqlite3.connect('dados_voos.db')
     cursor = conn.cursor()
-    cursor.execute('''INSERT INTO voos (empresa, companhia_de_voo, preco_total, taxa_de_embarque, taxa_de_servico, tempo_de_voo_minutes, data_hora_ida, data_hora_volta)
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (empresa, companhia_de_voo, preco_total, taxa_de_embarque, taxa_de_servico, tempo_de_voo, data_hora_ida, data_hora_volta))
+    cursor.execute('''INSERT INTO produtos (modelo, capacidade_gb, tamanho_tela, preco_total, valor_parcela, cor, ultimas_pecas)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)''', (modelo, capacidade_gb, tamanho_tela, preco_total, valor_parcela, cor, ultimas_pecas))
     conn.commit()
     conn.close()
